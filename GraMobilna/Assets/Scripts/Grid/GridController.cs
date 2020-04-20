@@ -5,45 +5,37 @@ using UnityEngine;
 public class GridController : MonoBehaviour
 {
     [SerializeField]
-    private float size = 1f; 
+    private int size = 1;
+    private GameObject gridPointPrefab;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        gridPointPrefab = Resources.Load("Prefabs/Grid/GridPoint") as GameObject;
+        CreateGrid(size);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CreateGrid(int size)
     {
-        
+        for (int x = 0; x < size; x++)
+        {
+            for (int z = 0; z < size; z++)
+            {
+                Vector3 point = new Vector3(x, 0f, z);
+                GameObject temp = Instantiate(gridPointPrefab);
+                temp.transform.position = point;
+            }
+        }
     }
 
-    public Vector3 GetNearestPointOnGrid(Vector3 position)
-    {
-        position -= transform.position;
-
-        int xCount = Mathf.RoundToInt(position.x / size);
-        int yCount = Mathf.RoundToInt(position.y / size);
-        int zCount = Mathf.RoundToInt(position.z / size);
-
-        Vector3 result = new Vector3(
-            (float)xCount * size,
-            (float)yCount * size,
-            (float)zCount * size);
-
-        result += transform.position;
-        return result;
-    }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        for (float x = 0; x<40;x+=size)
+        for (int x = 0; x<size;x++)
         {
-            for(float z = 0; z<40; z +=size)
+            for(int z = 0; z<size; z++)
             {
-                var point = GetNearestPointOnGrid(new Vector3( x,0f,z));
+                Vector3 point = new Vector3(x, 0f, z);
                 Gizmos.DrawSphere(point, 0.1f);
             }
         }

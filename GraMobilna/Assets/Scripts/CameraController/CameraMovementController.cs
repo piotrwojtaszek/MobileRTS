@@ -28,13 +28,14 @@ public class CameraMovementController : MonoBehaviour
             plane.SetNormalAndPosition(transform.up, transform.position);
         }
 
-        var delta1 = Vector3.zero;
-        var delta2 = Vector3.zero;
+        Vector3 delta1 = Vector3.zero;
+        Vector3 delta2 = Vector3.zero;
 
         if (Input.touchCount >= 1)
         {
             delta1 = PlanePositionDelta(Input.GetTouch(0));
-            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+                                                                // żeby nie bylo małych ruchow
+            if (Input.GetTouch(0).phase == TouchPhase.Moved && delta1.magnitude*100f >1f)
             {
                 camera.transform.Translate(delta1, Space.World);
             }

@@ -2,6 +2,10 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraMovementController
+    - CameraRay
+    - GridController
+    - GridPoint
+    - OnTouch
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
     - UnityEngine.Rendering.UI.DebugUIHandlerButton
@@ -40,6 +44,8 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.EventSystems.EventSystem
+    - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
@@ -75,6 +81,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
@@ -84,85 +92,97 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11294}
+      Script: {instanceID: 11284}
     - Class: 114
-      Script: {instanceID: 11398}
+      Script: {instanceID: 11388}
     - Class: 114
-      Script: {instanceID: 11498}
+      Script: {instanceID: 11490}
     - Class: 114
-      Script: {instanceID: 11518}
+      Script: {instanceID: 11510}
     - Class: 114
-      Script: {instanceID: 11608}
+      Script: {instanceID: 11600}
     - Class: 114
-      Script: {instanceID: 11612}
+      Script: {instanceID: 11604}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11678}
     - Class: 114
-      Script: {instanceID: 11722}
+      Script: {instanceID: 11712}
     - Class: 114
-      Script: {instanceID: 11848}
+      Script: {instanceID: 11838}
     - Class: 114
-      Script: {instanceID: 11878}
+      Script: {instanceID: 11868}
     - Class: 114
-      Script: {instanceID: 12160}
+      Script: {instanceID: 12150}
     - Class: 114
-      Script: {instanceID: 12202}
+      Script: {instanceID: 12192}
     - Class: 114
-      Script: {instanceID: 12260}
+      Script: {instanceID: 12250}
     - Class: 114
-      Script: {instanceID: 12480}
+      Script: {instanceID: 12364}
     - Class: 114
-      Script: {instanceID: 12672}
+      Script: {instanceID: 12470}
     - Class: 114
-      Script: {instanceID: 12712}
+      Script: {instanceID: 12662}
     - Class: 114
-      Script: {instanceID: 12768}
+      Script: {instanceID: 12702}
     - Class: 114
-      Script: {instanceID: 12860}
+      Script: {instanceID: 12758}
     - Class: 114
-      Script: {instanceID: 13112}
+      Script: {instanceID: 12850}
     - Class: 114
-      Script: {instanceID: 13138}
+      Script: {instanceID: 12890}
     - Class: 114
-      Script: {instanceID: 13256}
+      Script: {instanceID: 13084}
     - Class: 114
-      Script: {instanceID: 13400}
+      Script: {instanceID: 13106}
     - Class: 114
-      Script: {instanceID: 13460}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 13480}
+      Script: {instanceID: 13250}
     - Class: 114
-      Script: {instanceID: 13596}
+      Script: {instanceID: 13394}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 13454}
     - Class: 114
-      Script: {instanceID: 13632}
+      Script: {instanceID: 13474}
     - Class: 114
-      Script: {instanceID: 13924}
+      Script: {instanceID: 13590}
     - Class: 114
-      Script: {instanceID: 13940}
+      Script: {instanceID: 13618}
     - Class: 114
-      Script: {instanceID: 13988}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14206}
+      Script: {instanceID: 13918}
     - Class: 114
-      Script: {instanceID: 14382}
+      Script: {instanceID: 13934}
     - Class: 114
-      Script: {instanceID: 14426}
+      Script: {instanceID: 13982}
     - Class: 114
-      Script: {instanceID: 14616}
+      Script: {instanceID: 14200}
     - Class: 114
-      Script: {instanceID: 14618}
+      Script: {instanceID: 14376}
     - Class: 114
-      Script: {instanceID: 14666}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14668}
+      Script: {instanceID: 14610}
+    - Class: 114
+      Script: {instanceID: 14612}
+    - Class: 114
+      Script: {instanceID: 14640}
+    - Class: 114
+      Script: {instanceID: 14660}
+    - Class: 114
+      Script: {instanceID: 14662}
+    - Class: 114
+      Script: {instanceID: 14772}
     - Class: 114
       Script: {instanceID: 14778}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 18308}
     - Class: 114
-      Script: {instanceID: 17744}
+      Script: {instanceID: 18836}
+    - Class: 114
+      Script: {instanceID: 18860}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -528,6 +548,12 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerToggleHistory
   - hash:
       serializedVersion: 2
+      Hash: b7e9b7b8b027fa3514304264fc99a529
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GridController
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -550,6 +576,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering
     className: VolumeProfile
+  - hash:
+      serializedVersion: 2
+      Hash: eb9c06a7a542b8d458c8ba82240b3d61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraMovementController
   - hash:
       serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
@@ -990,10 +1022,22 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: eb9c06a7a542b8d458c8ba82240b3d61
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CameraMovementController
+    className: GridPoint
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OnTouch
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraRay
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
