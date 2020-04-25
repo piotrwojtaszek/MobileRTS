@@ -30,7 +30,7 @@ public class CameraRay : MonoBehaviour
                 {
                     try
                     {
-                        hitInfo.collider.GetComponent<OnTouch>().OnTouching();
+                        hitInfo.collider.GetComponent<Interactable>().Interact();
                     }
                     catch(Exception)
                     {

@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class OnTouch : MonoBehaviour
 {
-    private void Start()
-    {
-        
-    }
-
     public void OnTouching()
     {
         gameObject.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;

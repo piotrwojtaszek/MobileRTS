@@ -2,12 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridPoint : MonoBehaviour
+public class GridPoint : Interactable
 {
-    private bool empty = true;
+    [SerializeField]
+    private GameObject model;
 
-    public void SimpleCube(Vector3 pos)
+    private void Awake()
     {
-        GameObject.CreatePrimitive(PrimitiveType.Sphere).transform.position = pos;
+        GameObject temp = Resources.Load("Prefabs/Grid/GridPointModel") as GameObject;
+        model = Instantiate(temp, transform);
+    }
+
+    public override void Interact()
+    {
+        base.Interact();
+        model.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;
     }
 }
