@@ -7,13 +7,17 @@ public class BuildingStats : Interactable, IBaseSettings
     public float currentHealth = 80f;
     public float maxHealth = 100f;
     public GameObject modelGraficzny;
+
+
     public void Awake()
     {
         transform.position = new Vector3((int)transform.position.x, transform.position.y, (int)transform.position.z);
+
     }
     public void Start()
     {
-        SetMaxHealth(maxHealth);   
+        SetMaxHealth(maxHealth);
+
     }
     public void Create()
     {
