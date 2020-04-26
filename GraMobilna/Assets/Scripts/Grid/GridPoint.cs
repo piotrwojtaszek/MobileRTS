@@ -6,17 +6,38 @@ public class GridPoint : Interactable
 {
     [SerializeField]
     private GameObject model;
-    public AnimationCurve curve;
-    private void Awake()
-    {
-        GameObject temp = Resources.Load("Prefabs/Grid/GridPointModel") as GameObject;
-        model = Instantiate(temp, transform);
-        PingPongAnimation.PingPongScale(gameObject,1.5f,.7f,curve);
-    }
+    public GameObject budynek;
+    public bool empty = true;
 
     public override void Interact()
     {
         base.Interact();
         model.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;
+    }
+
+    public void SwitchMode(bool mode)
+    {
+        if(mode)
+        {
+            if (empty)
+            {
+                GameObject temp = Resources.Load("Prefabs/Grid/GridPointModel") as GameObject;
+                model = Instantiate(temp, transform);
+            }
+        }
+        else
+        {
+            if(empty)
+            {
+                Destroy(model);
+            }
+        }
+    }
+
+    public void DodajBudynek()
+    {
+        GameObject temp = Resources.Load("Prefabs/Objects/Buildings/Prefabs/Drzewo") as GameObject;
+        Instantiate(temp, transform);
+        empty = false;
     }
 }

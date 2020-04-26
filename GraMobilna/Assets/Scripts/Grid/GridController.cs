@@ -6,41 +6,88 @@ public class GridController : MonoBehaviour
 {
     [SerializeField]
     private int size = 1;
-    private GameObject gridPointPrefab;
+    private GameObject gridPrefab;
     private GameObject gridBasePrefab;
     public GameObject gridConteiner;
     public GameObject groundConteriner;
     private EventsOnMapScript mapScript;
+    private List<GameObject> gridPoints = new List<GameObject>();
+    private bool buildMode = false;
+
+    private int treeNumber;
+    private int rockNumber;
+    private int coalNumber;
+    private int metalNumber;
+    private int uselessNumber;
 
     private void Awake()
     {
-        gridPointPrefab = Resources.Load("Prefabs/Grid/GridPoint") as GameObject;
+        size = Random.Range(6, 9);
+        gridPrefab = Resources.Load("Prefabs/Grid/GridPoint") as GameObject;
         gridBasePrefab = Resources.Load("Prefabs/Objects/Odlamki/Prefabs/baseGrid") as GameObject;
         GameObject ground = Instantiate(gridBasePrefab, groundConteriner.transform);
 
         ground.transform.localScale = ground.transform.localScale * size;
 
-        CreateGrid(size);
+
         mapScript = Resources.Load("Prefabs/ScriptableObjects/Events/BuildMode") as EventsOnMapScript;
+        buildMode = mapScript.Value;
+        CreateGrid(size);
     }
 
     private void Update()
     {
-        if(gridConteiner.activeSelf != mapScript.Value)
+        if (buildMode != mapScript.Value)
         {
+            buildMode = mapScript.Value;
             SwitchMode();
         }
     }
 
-    private void CreateGrid(int size)   
+    private void CreateGrid(int size)
     {
-        for (int x = 0; x <= size; x++)
+        GeneratorIlosci(size);
+        for (int x = 1; x < size; x++)
         {
-            for (int z = 0; z <= size; z++)
+            for (int z = 1; z < size; z++)
             {
                 Vector3 point = new Vector3(x, 0f, z);
-                GameObject temp = Instantiate(gridPointPrefab, gridConteiner.transform);
+                GameObject temp = Instantiate(gridPrefab, gridConteiner.transform);
                 temp.transform.position = point;
+                gridPoints.Add(temp);
+
+                temp.GetComponent<GridPoint>().SwitchMode(mapScript.Value);
+            }
+        }
+        GeneratorRozmieszczenia();
+    }
+
+    void GeneratorIlosci(int size)
+    {
+        int random = Random.Range(1,3);
+
+        Debug.Log("Drewno");
+        treeNumber = (int)random + size;
+        rockNumber = (int)random+(int)size/2-2;
+        coalNumber = (int)random/2+1;
+        metalNumber = random-1;
+        uselessNumber = (int)size/2;
+
+        Debug.Log("Wylosowane: " + "Drzewa: " + treeNumber + " Kamienie: " + rockNumber + " Wegiel: " + coalNumber + " Metal: " + metalNumber +" Bezuzyteczne: " +uselessNumber+" Ogolnie: " + size * size);
+    }
+
+    void GeneratorRozmieszczenia()
+    {
+        int ogolnieDoRozmieszczenia = treeNumber + rockNumber + coalNumber + metalNumber + uselessNumber;
+
+        while(ogolnieDoRozmieszczenia >0)
+        {
+            int rand = Random.Range(0, gridPoints.Count-1);
+            GridPoint losulosu = gridPoints[rand].GetComponent<GridPoint>();
+            if (losulosu.empty)
+            {
+                losulosu.DodajBudynek();
+                ogolnieDoRozmieszczenia--;
             }
         }
     }
@@ -49,9 +96,9 @@ public class GridController : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        for (int x = 0; x<size;x++)
+        for (int x = 1; x < size; x++)
         {
-            for(int z = 0; z<size; z++)
+            for (int z = 1; z < size; z++)
             {
                 Vector3 point = new Vector3(x, 0f, z);
                 Gizmos.DrawSphere(point, 0.1f);
@@ -61,6 +108,10 @@ public class GridController : MonoBehaviour
 
     public void SwitchMode()
     {
-        gridConteiner.SetActive(mapScript.Value);
+
+        foreach (GameObject obj in gridPoints)
+        {
+            obj.GetComponent<GridPoint>().SwitchMode(mapScript.Value);
+        }
     }
 }

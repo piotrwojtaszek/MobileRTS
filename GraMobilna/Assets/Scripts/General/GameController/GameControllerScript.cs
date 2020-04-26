@@ -15,6 +15,7 @@ public class GameControllerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T))
         {
             mapScript.Value = !mapScript.Value;
+
         }
     }
 }
