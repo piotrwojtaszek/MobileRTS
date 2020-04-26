@@ -12,6 +12,11 @@ public class GridPoint : Interactable
     public override void Interact()
     {
         base.Interact();
+        if(empty)
+        {
+            BuildingsPresets temp = Resources.Load("Prefabs/ScriptableObjects/ElementyUI") as BuildingsPresets;
+            Instantiate(temp.budynki[0]);
+        }
         model.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;
     }
 
@@ -34,10 +39,9 @@ public class GridPoint : Interactable
         }
     }
 
-    public void DodajBudynek()
+    public void DodajBudynek(GameObject doWczytania)
     {
-        GameObject temp = Resources.Load("Prefabs/Objects/Buildings/Prefabs/Drzewo") as GameObject;
-        Instantiate(temp, transform);
+        Instantiate(doWczytania, transform);
         empty = false;
     }
 }
