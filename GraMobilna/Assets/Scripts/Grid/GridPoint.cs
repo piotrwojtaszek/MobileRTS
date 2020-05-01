@@ -16,6 +16,7 @@ public class GridPoint : Interactable
         {
             BuildingsPresets buildingMenu = Resources.Load("Prefabs/ScriptableObjects/ElementyUI") as BuildingsPresets;
             EventsOnMapScript ray= Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>().currentGridPoint = GetComponent<GridPoint>();
             Instantiate(buildingMenu.budynki[0]);
             ray.Value = false;
         }

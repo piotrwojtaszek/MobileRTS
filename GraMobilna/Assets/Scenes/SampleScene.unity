@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f24b26ae1a61248b176ecfa8f81ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BTN_BuildMode: {fileID: 743551785}
 --- !u!114 &168353577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +468,7 @@ GameObject:
   - component: {fileID: 743551788}
   - component: {fileID: 743551787}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BTN_BuildMode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -599,8 +600,8 @@ GameObject:
   - component: {fileID: 1427355806}
   - component: {fileID: 1427355805}
   m_Layer: 0
-  m_Name: GameMenager
-  m_TagString: Untagged
+  m_Name: GameController
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,6 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ca35f89b2a37e448f908ba384ae4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentGridPoint: {fileID: 0}
 --- !u!4 &1427355806
 Transform:
   m_ObjectHideFlags: 0

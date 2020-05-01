@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameControllerScript : MonoBehaviour
 {
     EventsOnMapScript mapScript;
+    public GridPoint currentGridPoint;
     private void Awake()
     {
         mapScript = Resources.Load("Prefabs/ScriptableObjects/Events/BuildMode") as EventsOnMapScript;
