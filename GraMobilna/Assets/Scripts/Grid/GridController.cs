@@ -21,7 +21,7 @@ public class GridController : MonoBehaviour
     private int metalNumber;
     private int uselessNumber;
 
-    private void Awake()
+    private void Start()
     {
         size = Random.Range(6, 9);
         gridPrefab = Resources.Load("Prefabs/Grid/GridPoint") as GameObject;
@@ -34,6 +34,7 @@ public class GridController : MonoBehaviour
 
         mapScript = Resources.Load("Prefabs/ScriptableObjects/Events/BuildMode") as EventsOnMapScript;
         neutralBuilidings = Resources.Load("Prefabs/ScriptableObjects/ModeleZasobow") as BuildingsPresets;
+        mapScript.Value = false;
         buildMode = mapScript.Value;
         CreateGrid(size);
     }

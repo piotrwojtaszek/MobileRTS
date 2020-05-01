@@ -11,7 +11,7 @@ public class CameraMovementController : MonoBehaviour
     private Camera camera;
     [SerializeField]
     private bool rotate;
-
+    EventsOnMapScript ray;
     protected Plane plane;
     private void Awake()
     {
@@ -19,51 +19,56 @@ public class CameraMovementController : MonoBehaviour
         {
             camera = Camera.main;
         }
+        ray = Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
     }
 
     private void Update()
     {
-        if (Input.touchCount >= 1)
+        if (ray.Value)
         {
-            plane.SetNormalAndPosition(transform.up, transform.position);
-        }
-
-        Vector3 delta1 = Vector3.zero;
-        Vector3 delta2 = Vector3.zero;
-
-        if (Input.touchCount >= 1)
-        {
-            delta1 = PlanePositionDelta(Input.GetTouch(0));
-                                                                // żeby nie bylo małych ruchow
-            if (Input.GetTouch(0).phase == TouchPhase.Moved && delta1.magnitude*100f >1f)
+            if (Input.touchCount >= 1)
             {
-                camera.transform.Translate(delta1, Space.World);
+                plane.SetNormalAndPosition(transform.up, transform.position);
+            }
+
+            Vector3 delta1 = Vector3.zero;
+            Vector3 delta2 = Vector3.zero;
+
+            if (Input.touchCount >= 1)
+            {
+                delta1 = PlanePositionDelta(Input.GetTouch(0));
+                // żeby nie bylo małych ruchow
+                if (Input.GetTouch(0).phase == TouchPhase.Moved && delta1.magnitude * 100f > 1f)
+                {
+                    camera.transform.Translate(delta1, Space.World);
+                }
+            }
+
+            if (Input.touchCount >= 2)
+            {
+
+                var pos1 = PlanePosition(Input.GetTouch(0).position);
+                var pos2 = PlanePosition(Input.GetTouch(1).position);
+
+                var pos1a = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
+                var pos2a = PlanePosition(Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition);
+
+                var zoom = Vector3.Distance(pos1, pos2) / Vector3.Distance(pos1a, pos2a);
+
+                if (zoom == 0 || zoom > 10)
+                {
+                    return;
+                }
+
+                camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
+
+                if (rotate && pos2a != pos2)
+                {
+                    camera.transform.RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2a - pos1a, plane.normal));
+                }
             }
         }
 
-        if (Input.touchCount >= 2)
-        {
-
-            var pos1 = PlanePosition(Input.GetTouch(0).position);
-            var pos2 = PlanePosition(Input.GetTouch(1).position);
-
-            var pos1a = PlanePosition(Input.GetTouch(0).position - Input.GetTouch(0).deltaPosition);
-            var pos2a = PlanePosition(Input.GetTouch(1).position - Input.GetTouch(1).deltaPosition);
-
-            var zoom = Vector3.Distance(pos1, pos2) / Vector3.Distance(pos1a, pos2a);
-            
-            if (zoom == 0 || zoom > 10)
-            {
-                return;
-            }
-
-            camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
-
-            if (rotate && pos2a != pos2)
-            {
-                camera.transform.RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2a - pos1a, plane.normal));
-            }
-        }
     }
 
     protected Vector3 PlanePositionDelta(Touch touch)

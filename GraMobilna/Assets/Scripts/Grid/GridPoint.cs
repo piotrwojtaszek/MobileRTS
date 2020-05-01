@@ -14,8 +14,10 @@ public class GridPoint : Interactable
         base.Interact();
         if(empty)
         {
-            BuildingsPresets temp = Resources.Load("Prefabs/ScriptableObjects/ElementyUI") as BuildingsPresets;
-            Instantiate(temp.budynki[0]);
+            BuildingsPresets buildingMenu = Resources.Load("Prefabs/ScriptableObjects/ElementyUI") as BuildingsPresets;
+            EventsOnMapScript ray= Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
+            Instantiate(buildingMenu.budynki[0]);
+            ray.Value = false;
         }
         model.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;
     }
