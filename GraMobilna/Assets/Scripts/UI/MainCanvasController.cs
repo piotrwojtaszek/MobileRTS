@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class MainCanvasController : MonoBehaviour
 {
-    EventsOnMapScript mapScript;
-    EventsOnMapScript ray;
     [SerializeField]
     GameObject BTN_BuildMode;
-    private void Awake()
+
+    public void BuildModeSwitch()
     {
-        mapScript = Resources.Load("Prefabs/ScriptableObjects/Events/BuildMode") as EventsOnMapScript;
-        ray = Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
-        ray.Value = true;
+        GameControllerScript.Instance.currentGridPoint = null;
+        Debug.Log("Zmien tryb");
+        GameControllerScript.Instance.SetBuildMode(!GameControllerScript.Instance.GetBuildMode());
+    }
+    public void MoveModeSwitch()
+    {
+        GameControllerScript.Instance.SetMoveMode(!GameControllerScript.Instance.GetMoveMode());
     }
 
-    private void Update()
+    public void InteractionModeSwitch()
     {
-        BTN_BuildMode.SetActive(ray.Value);
-    }
-
-    public void SwitchMode()
-    {
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>().currentGridPoint = null;
-           Debug.Log("Zmien tryb");
-        mapScript.Value = !mapScript.Value;
+        GameControllerScript.Instance.SetInteractionMode(!GameControllerScript.Instance.GetInteractionMode());
     }
 }

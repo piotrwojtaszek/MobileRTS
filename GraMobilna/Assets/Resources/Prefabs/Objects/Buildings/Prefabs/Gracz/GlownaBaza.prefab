@@ -282,6 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2643730400362734708}
   - component: {fileID: 5213208096626053292}
+  - component: {fileID: 4400051233028473198}
   m_Layer: 0
   m_Name: GlownaBaza
   m_TagString: Untagged
@@ -317,6 +318,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &4400051233028473198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7320721145665033003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b64711f5987ad4468717f7cb9173790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 80
+  maxHealth: 100
+  settings: {fileID: 11400000, guid: d824f5e680fdd0a44a1ab49ad9ee3b24, type: 2}
+  parent: {fileID: 0}
 --- !u!1 &7330461376328531985
 GameObject:
   m_ObjectHideFlags: 0

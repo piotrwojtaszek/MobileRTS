@@ -18,9 +18,10 @@ public class CardBuildingDisplay : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("Dodaj Budynek -> "+settings.buildingName);
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>().currentGridPoint.DodajBudynek(settings.model);
-        GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>().currentGridPoint = null;
+        GameControllerScript.Instance.currentGridPoint.DodajBudynek(settings.model);
+        GameControllerScript.Instance.currentGridPoint = null;
         parent.CloseUI();
+        GameControllerScript.Instance.SetRayFromCamera(true);
     }
 
 }

@@ -6,8 +6,9 @@ using UnityEngine;
 public class SOBuildingsBaseSettings : ScriptableObject
 {
     public Sprite icon;
-    public int maxHealth;
+    public float maxHealth;
     public string buildingName;
     public GameObject model;
     public int koszt;
+    public int interactions=0;
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   buildingName: MainBase
   model: {fileID: 7320721145665033003, guid: 35b8affaa1699f14180a7c1020f135ae, type: 3}
   koszt: 10
+  interactions: 2

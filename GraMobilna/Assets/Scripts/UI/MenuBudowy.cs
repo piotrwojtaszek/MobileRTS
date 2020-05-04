@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class MenuBudowy : MonoBehaviour
 {
-    EventsOnMapScript ray;
     [SerializeField]
     Scrollbar scroll;
     [SerializeField]
@@ -27,8 +26,8 @@ public class MenuBudowy : MonoBehaviour
     public void CloseUI()
     {
         Destroy(this.gameObject);
-        ray = Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
-        ray.Value = true;
+        GameControllerScript.Instance.SetRayFromCamera(true);
+        GameControllerScript.Instance.SetBuildMode(false);
 
     }
 }

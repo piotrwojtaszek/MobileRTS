@@ -4,19 +4,61 @@ using UnityEngine;
 
 public class GameControllerScript : MonoBehaviour
 {
-    EventsOnMapScript mapScript;
+    public static GameControllerScript Instance;
     public GridPoint currentGridPoint;
+    public BuildingStats currentBuilding;
+    private bool interactionMode=false;
+    private bool buildMode=false;
+    private bool moveMode = true;
+
     private void Awake()
     {
-        mapScript = Resources.Load("Prefabs/ScriptableObjects/Events/BuildMode") as EventsOnMapScript;
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
+        if(Instance == null)
         {
-            mapScript.Value = !mapScript.Value;
-
+            Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
+    public void SetRayFromCamera(bool value)
+    {
+        interactionMode = value;
+    }
+
+    public bool GetRayFromCamera()
+    {
+        return interactionMode;
+    }
+    public void SetBuildMode(bool value)
+    {
+        buildMode = value;
+    }
+
+    public bool GetBuildMode()
+    {
+        return buildMode;
+    }
+
+    public void SetMoveMode(bool value)
+    {
+        moveMode = value;
+    }
+
+    public bool GetMoveMode()
+    {
+        return moveMode;
+    }
+    public void SetInteractionMode(bool value)
+    {
+        interactionMode = value;
+    }
+
+    public bool GetInteractionMode()
+    {
+        return interactionMode;
     }
 }

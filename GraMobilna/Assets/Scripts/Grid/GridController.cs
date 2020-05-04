@@ -10,10 +10,9 @@ public class GridController : MonoBehaviour
     private GameObject gridBasePrefab;
     public GameObject gridConteiner;
     public GameObject groundConteriner;
-    private EventsOnMapScript mapScript;
     private BuildingsPresets neutralBuilidings;
     private List<GameObject> gridPoints = new List<GameObject>();
-    private bool buildMode = false;
+    private bool buildMode;
 
     private int treeNumber;
     private int rockNumber;
@@ -30,20 +29,16 @@ public class GridController : MonoBehaviour
         GameObject ground = Instantiate(gridBasePrefab, groundConteriner.transform);
 
         ground.transform.localScale = ground.transform.localScale * size;
-
-
-        mapScript = Resources.Load("Prefabs/ScriptableObjects/Events/BuildMode") as EventsOnMapScript;
+        buildMode = GameControllerScript.Instance.GetBuildMode();
         neutralBuilidings = Resources.Load("Prefabs/ScriptableObjects/ModeleZasobow") as BuildingsPresets;
-        mapScript.Value = false;
-        buildMode = mapScript.Value;
         CreateGrid(size);
     }
 
     private void Update()
     {
-        if (buildMode != mapScript.Value)
+        if (buildMode != GameControllerScript.Instance.GetBuildMode())
         {
-            buildMode = mapScript.Value;
+            buildMode = GameControllerScript.Instance.GetBuildMode();
             SwitchMode();
         }
     }
@@ -60,7 +55,7 @@ public class GridController : MonoBehaviour
                 temp.transform.position = point;
                 gridPoints.Add(temp);
 
-                temp.GetComponent<GridPoint>().SwitchMode(mapScript.Value);
+                temp.GetComponent<GridPoint>().SwitchMode(GameControllerScript.Instance.GetBuildMode());
             }
         }
         GeneratorRozmieszczenia();
@@ -140,7 +135,7 @@ public class GridController : MonoBehaviour
 
         foreach (GameObject obj in gridPoints)
         {
-            obj.GetComponent<GridPoint>().SwitchMode(mapScript.Value);
+            obj.GetComponent<GridPoint>().SwitchMode(GameControllerScript.Instance.GetBuildMode());
         }
     }
 }

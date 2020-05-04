@@ -170,7 +170,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 0
-  modelGraficzny: {fileID: 0}
+  maxHealth: 100
+  settings: {fileID: 11400000, guid: 29a9bae036e087e469316563e240b0be, type: 2}
+  parent: {fileID: 0}
 --- !u!1 &7721018029197528411
 GameObject:
   m_ObjectHideFlags: 0

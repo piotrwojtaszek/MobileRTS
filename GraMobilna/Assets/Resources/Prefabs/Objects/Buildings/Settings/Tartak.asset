@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Tartak
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: a97e480ead213f64aab30a53c2caba91, type: 3}
-  maxHealth: 20
+  maxHealth: 40
   buildingName: Tartak
   model: {fileID: 2424347916049963862, guid: 528d82a1289275647a4bff841ff53ff2, type: 3}
   koszt: 30
+  interactions: 2

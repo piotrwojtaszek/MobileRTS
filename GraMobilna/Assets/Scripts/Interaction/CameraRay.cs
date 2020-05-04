@@ -4,17 +4,10 @@ using UnityEngine;
 using System;
 public class CameraRay : MonoBehaviour
 {
-    EventsOnMapScript ray;
-    // Start is called before the first frame update
-    void Awake()
-    {
-        ray = Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (ray.Value)
+        if (GameControllerScript.Instance.GetRayFromCamera())
             ShootRay();
     }
 

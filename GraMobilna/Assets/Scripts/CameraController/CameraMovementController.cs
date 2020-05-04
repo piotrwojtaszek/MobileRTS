@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class CameraMovementController : MonoBehaviour
 {
-    // szkielet sktyptu zostal stworzony w oparciu o ten tutorial
-    // https://www.youtube.com/watch?v=KkYco_7-ULA
 
     [SerializeField]
     private Camera camera;
     [SerializeField]
     private bool rotate;
-    EventsOnMapScript ray;
     protected Plane plane;
     private void Awake()
     {
@@ -19,12 +16,11 @@ public class CameraMovementController : MonoBehaviour
         {
             camera = Camera.main;
         }
-        ray = Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
     }
 
     private void Update()
     {
-        if (ray.Value)
+        if (GameControllerScript.Instance.GetMoveMode())
         {
             if (Input.touchCount >= 1)
             {
@@ -61,12 +57,18 @@ public class CameraMovementController : MonoBehaviour
                 }
 
                 camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
-
+                if (camera.transform.position.y > 20)
+                {
+                    camera.transform.position = new Vector3(camera.transform.position.x, Mathf.Clamp(camera.transform.position.y, 2f, 30f), camera.transform.position.z);
+                    return;
+                }
                 if (rotate && pos2a != pos2)
                 {
                     camera.transform.RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2a - pos1a, plane.normal));
                 }
             }
+
+           // camera.transform.position = new Vector3(camera.transform.position.x, Mathf.Clamp(camera.transform.position.y, 2f, 30f), camera.transform.position.z);
         }
 
     }

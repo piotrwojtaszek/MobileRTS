@@ -15,10 +15,9 @@ public class GridPoint : Interactable
         if(empty)
         {
             BuildingsPresets buildingMenu = Resources.Load("Prefabs/ScriptableObjects/ElementyUI") as BuildingsPresets;
-            EventsOnMapScript ray= Resources.Load("Prefabs/ScriptableObjects/Events/RayFromCamera") as EventsOnMapScript;
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameControllerScript>().currentGridPoint = GetComponent<GridPoint>();
+            GameControllerScript.Instance.currentGridPoint = this;
             Instantiate(buildingMenu.budynki[0]);
-            ray.Value = false;
+            GameControllerScript.Instance.SetRayFromCamera(false);
         }
         model.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;
     }
@@ -44,7 +43,8 @@ public class GridPoint : Interactable
 
     public void DodajBudynek(GameObject doWczytania)
     {
-        Instantiate(doWczytania, transform);
+        Destroy(model);
+        GameObject obiekt = Instantiate(doWczytania, transform);
         empty = false;
     }
 }

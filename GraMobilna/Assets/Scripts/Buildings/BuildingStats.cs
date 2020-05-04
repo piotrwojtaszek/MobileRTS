@@ -5,18 +5,19 @@ using UnityEngine;
 public class BuildingStats : Interactable, IBaseSettings
 {
     public float currentHealth = 80f;
-    public float maxHealth = 100f;
-    public GameObject modelGraficzny;
-
+    public float maxHealth;
+    public SOBuildingsBaseSettings settings;
+    public GridPoint parent;
 
     public void Awake()
     {
+        parent = GameControllerScript.Instance.currentGridPoint;
         transform.position = new Vector3((int)transform.position.x, transform.position.y, (int)transform.position.z);
 
     }
     public void Start()
     {
-        SetMaxHealth(maxHealth);
+        SetMaxHealth(settings.maxHealth);
 
     }
     public void Create()
@@ -32,12 +33,15 @@ public class BuildingStats : Interactable, IBaseSettings
 
     public void Die()
     {
+
         Destroy(gameObject);
+        parent.empty = true;
         Debug.Log("Zniszcz");
     }
+
     public override void Interact()
     {
-        modelGraficzny.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;
+        //modelGraficzny.GetComponent<Renderer>().material = Resources.Load("Prefabs/Materials/Touched") as Material;
     }
 
     public void TakeDamage(float damage)
@@ -48,5 +52,11 @@ public class BuildingStats : Interactable, IBaseSettings
     public void TakeHealth(float health)
     {
         currentHealth += health;
+    }
+
+    public virtual void InteractionCard(int number)
+    {
+        GameObject prefab = Resources.Load("Prefabs/UI/OnMapEvents/UIMenuIntrakcjiBudynkow") as GameObject;
+        Instantiate(prefab);
     }
 }
