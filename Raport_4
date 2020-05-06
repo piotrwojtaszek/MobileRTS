@@ -1,0 +1,47 @@
+Aktualnie gra prezentuje się tak: https://youtu.be/hRMtGbk_mYQ
+
+Ruda kulka to tymaczasowy model Kamienia
+Czarny cylinder to tymaczsowy model Węgla
+Drzewo akurat wygląda jak drzewo ( ale też zostanie zmieniony ten model)
+Fioletowa piramida to "Nieużytek", na początkowej mapie nie będzie można tam budować ale na kolejnyh terenach to będą wrogie bazy
+Jeszcze jest metal, ale akurat na tym filmiku nie widać go.
+
+Napotkałem pierwsze problemy. Były one związane z poruszaniem kamerą a sposobem interakcji z otoczeniem. 
+Błąd polegał na tym że poruszanie kamerą odbywa się poprzez przesuwanie palcem po ekranie, a interakcja z otoczeniem odbywała się poprzez 
+dotknięcie palcem ekranu. Więc jeśli przesuwając palcem po ekranie trafiliśmy w jakiś interaktywny obiekt, gra intepretowała to 
+jako chęć interakcji a nie poruszania kamerą. 
+Rozwiązanie problemu -> dodałem przyciski których kliknięcie sprawia że:
+1) Włącz/wyłącz możliwość interakcji z obiektami na mapie
+2) Włącz/wyłącz możliwość poruszania się kamerą
+3) Włącz/wyłącz tryb budowania
+
+Początkowo chciałem aby bydynki typu tartak, kamieniołom, kopalnia tworzyły postacie które będą chodzić do surowca i go wydobywać. 
+Aktualnie postanowiłem to zmienić i np. tartak wydobywa drewno z drzew które są w jego zasięgu.Ten pomysł daje większe możliwości
+do ulepszania budynków np: 
+-możliwość powiększenia zasięgu, 
+-początkowo budynek będzie mógł pobierać zasoby np. tylko z jednego drzewa, aby wraz ze zwiększeniem jego poziomu mógł czerpać surowiec
+z większej ilości pobliskich drzew.
+
+Większość z budynków będzie mieć jakieś interakcje lub możliwość ulepszenia.
+
+Stworzyłem szablony(Scriptable Object) dzięki którym mam możliwość szybkiej modyfikacji ustawień budynków np. podmiana modeli lub zmiana
+maksymalnego zdrowia.
+
+Interakcja z obiektami działa tak że jeśli obiekt jest interaktywny to dziedziczy klasę Interactable w której 
+jest klasa wirtualna Interact, która w sktypcie np. TartakController jest nadpisywana przez metodę Interact w tej klasie.
+
+Mapy są generowane losowo tzn. każdy teren jest kwadratem, którego długość może wynieść od 7 do 10 jednostek. Na każdym terenie
+jest losowana ilość drzew, węgla, kamienia i metalu. Trzy pierwsze zasoby zawsze występują na terenia natomiast metal, występuje
+z prawdopodobieństwem 70%.(chyba zmienie żeby na początkowym terenie zawsze występował)
+
+Największym wyzwaniem będzie połączenie wszystkich terenów.
+Myślę że w celu zoptymalizowania gry dam maksymalną ilość terenów jaka może zostac wygenerowana.
+Gra zakończy się gdy zniszczymy wszystkie wrogie bazy.
+Planuję zmienić skrypt odpowiadający za pracę kamery, chcę aby była bardziej płynna.
+
+Rzezczy do zrobienia: 
+- Sprawić aby pojawiały się tereny sąsiadujące
+- Stworzyć "Garnizon" w którym będzie można tworzyć jednostki
+- Stworzyć wrogie jednostki
+- Stworzyć możliwość poruszania się pomiędzy sąsiadującymi terenami
+- Stworzyć możliwość zapisu/wczytania stanu gry
