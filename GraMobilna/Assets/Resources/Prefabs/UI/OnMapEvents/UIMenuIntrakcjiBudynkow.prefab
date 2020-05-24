@@ -664,6 +664,8 @@ MonoBehaviour:
   interactionsContainer: {fileID: 979601455506832322}
   healthBar: {fileID: 979601455228374437}
   currentBuilding: {fileID: 0}
+  buildingIcon: {fileID: 979601455396168908}
+  nazwaBudynku: {fileID: 979601454575932451}
 --- !u!1 &979601455396168910
 GameObject:
   m_ObjectHideFlags: 0

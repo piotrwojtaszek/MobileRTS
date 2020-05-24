@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class MenuBuildInteractions : MonoBehaviour
 {
 
@@ -10,12 +11,14 @@ public class MenuBuildInteractions : MonoBehaviour
     public GameObject interactionsContainer;
     public Slider healthBar;
     public BuildingStats currentBuilding;
+    public Image buildingIcon;
+    public TextMeshProUGUI nazwaBudynku;
     // Start is called before the first frame update
     void Start()
     {
         GameControllerScript.Instance.SetRayFromCamera(false);
         cardPrefab = Resources.Load("Prefabs/UI/BUILDING/CardBuildingInteraction") as GameObject;
-
+        
 
     }
 
@@ -35,7 +38,8 @@ public class MenuBuildInteractions : MonoBehaviour
     {
         currentBuilding = GameControllerScript.Instance.currentBuilding;
         numberOfInteractions = currentBuilding.settings.interactions;
-
+        nazwaBudynku.text = currentBuilding.settings.buildingName;
+        buildingIcon.sprite = currentBuilding.settings.icon;
         for (int i = 0; i < numberOfInteractions; i++)
         {
             GameObject card = Instantiate(cardPrefab, interactionsContainer.transform);
