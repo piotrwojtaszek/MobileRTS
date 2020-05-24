@@ -94,6 +94,7 @@ MonoBehaviour:
   icon: {fileID: 1143067393846922880}
   parent: {fileID: 0}
   buildingNameText: {fileID: 5754994817388140087}
+  buttonAdd: {fileID: 2033773972450150707}
 --- !u!1 &1851391357114633077
 GameObject:
   m_ObjectHideFlags: 0

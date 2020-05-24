@@ -16,5 +16,8 @@ MonoBehaviour:
   maxHealth: 40
   buildingName: Kamieniarz
   model: {fileID: 2424347916049963862, guid: 42116a5d84539994bb225af6ae06e7d1, type: 3}
-  koszt: 30
+  kosztDrewna: 50
+  kosztKamienia: 20
+  kosztWegla: 0
+  kosztMetalu: 10
   interactions: 2

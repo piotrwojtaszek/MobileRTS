@@ -9,6 +9,9 @@ public class SOBuildingsBaseSettings : ScriptableObject
     public float maxHealth;
     public string buildingName;
     public GameObject model;
-    public int koszt;
+    public int kosztDrewna;
+    public int kosztKamienia;
+    public int kosztWegla;
+    public int kosztMetalu;
     public int interactions=0;
 }

@@ -16,5 +16,8 @@ MonoBehaviour:
   maxHealth: 40
   buildingName: "G\xF3rnik"
   model: {fileID: 2424347916049963862, guid: 593bd51c207f4b544a35dad9a935ea31, type: 3}
-  koszt: 30
+  kosztDrewna: 100
+  kosztKamienia: 50
+  kosztWegla: 30
+  kosztMetalu: 0
   interactions: 2

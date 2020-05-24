@@ -2330,10 +2330,10 @@ MonoBehaviour:
   kamienIncrece: 0
   wegielIncrece: 0
   metalIncrece: 0
-  drewnoAmount: 0
-  kamienAmount: 0
-  wegielAmount: 0
-  metalAmount: 0
+  drewnoAmount: 150
+  kamienAmount: 100
+  wegielAmount: 50
+  metalAmount: 50
   collectTimer: 0
 --- !u!4 &1427355806
 Transform:

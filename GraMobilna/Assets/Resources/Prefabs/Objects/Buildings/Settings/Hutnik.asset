@@ -16,5 +16,8 @@ MonoBehaviour:
   maxHealth: 50
   buildingName: Hutnik
   model: {fileID: 2424347916049963862, guid: 0f49ff11a00c2554cafaf504155f094c, type: 3}
-  koszt: 30
+  kosztDrewna: 60
+  kosztKamienia: 20
+  kosztWegla: 20
+  kosztMetalu: 10
   interactions: 2

@@ -9,18 +9,26 @@ public class GameControllerScript : MonoBehaviour
     public static GameControllerScript Instance;
     public GridPoint currentGridPoint;
     public BuildingStats currentBuilding;
-    public UnityAction zasobyTimer;
     private bool interactionMode = false;
     private bool buildMode = false;
     private bool moveMode = true;
+
+    // Szybkość przyrostu zasobów
+    [HideInInspector]
     public int drewnoIncrece = 0;
+    [HideInInspector]
     public int kamienIncrece = 0;
+    [HideInInspector]
     public int wegielIncrece = 0;
+    [HideInInspector]
     public int metalIncrece = 0;
-    public int drewnoAmount = 0;
-    public int kamienAmount = 0;
-    public int wegielAmount = 0;
-    public int metalAmount = 0;
+
+    // Ilość aktualnie posiadanych zasobów
+    public int drewnoAmount = 150;
+    public int kamienAmount = 100;
+    public int wegielAmount = 50;
+    public int metalAmount = 50;
+
     public float collectTimer = 0;
     private void Awake()
     {
@@ -83,6 +91,7 @@ public class GameControllerScript : MonoBehaviour
     {
         for (; ; )
         {
+            // to ma być wywolywane w kazdym budynku!!
             drewnoAmount += drewnoIncrece;
             kamienAmount += kamienIncrece;
             wegielAmount += wegielIncrece;

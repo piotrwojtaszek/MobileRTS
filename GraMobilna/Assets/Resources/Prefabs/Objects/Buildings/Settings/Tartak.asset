@@ -16,5 +16,8 @@ MonoBehaviour:
   maxHealth: 40
   buildingName: Drwal
   model: {fileID: 2424347916049963862, guid: 528d82a1289275647a4bff841ff53ff2, type: 3}
-  koszt: 30
+  kosztDrewna: 50
+  kosztKamienia: 25
+  kosztWegla: 0
+  kosztMetalu: 10
   interactions: 2
