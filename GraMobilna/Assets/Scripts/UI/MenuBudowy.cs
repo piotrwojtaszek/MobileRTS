@@ -10,9 +10,11 @@ public class MenuBudowy : MonoBehaviour
     GameObject content;
     BuildingsList listaBudunkow;
     GameObject builidingCardPrefab;
+    bool oldMoveMode;
     private void Start()
     {
-       
+        oldMoveMode = GameControllerScript.Instance.GetMoveMode();
+        GameControllerScript.Instance.SetMoveMode(false);
         listaBudunkow = Resources.Load("Prefabs/ScriptableObjects/Budynki/ListaBudynkow") as BuildingsList;
         foreach(SOBuildingsBaseSettings item in listaBudunkow.lista)
         {
@@ -28,6 +30,7 @@ public class MenuBudowy : MonoBehaviour
         Destroy(this.gameObject);
         GameControllerScript.Instance.SetRayFromCamera(true);
         GameControllerScript.Instance.SetBuildMode(false);
+        GameControllerScript.Instance.SetMoveMode(oldMoveMode);
 
     }
 }

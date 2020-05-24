@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdeaedc658b61994e8f5f4b3861af2d0, type: 3}
   m_Name: MainBase
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 5f1cefd52aa5b5146bd95c477238a13d, type: 3}
+  icon: {fileID: 21300000, guid: 813040cf0cf5e5940b9aaaa5c3b8e3a9, type: 3}
   maxHealth: 100
-  buildingName: MainBase
+  buildingName: Zamek
   model: {fileID: 7320721145665033003, guid: 35b8affaa1699f14180a7c1020f135ae, type: 3}
   koszt: 10
   interactions: 2

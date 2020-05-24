@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5441008335598274493}
   - component: {fileID: 2242368926471997626}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Kamien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 9045542016017483311}
   - component: {fileID: 8876687574318140985}
   - component: {fileID: 5596704313825721807}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 363364407822006074}
-  m_Layer: 8
+  m_Layer: 14
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

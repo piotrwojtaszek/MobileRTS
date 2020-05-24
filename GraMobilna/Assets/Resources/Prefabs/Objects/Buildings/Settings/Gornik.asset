@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdeaedc658b61994e8f5f4b3861af2d0, type: 3}
+  m_Name: Gornik
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 7b0a588eb1427a84cb8c1b60b584cc33, type: 3}
+  maxHealth: 40
+  buildingName: "G\xF3rnik"
+  model: {fileID: 2424347916049963862, guid: 593bd51c207f4b544a35dad9a935ea31, type: 3}
+  koszt: 30
+  interactions: 2

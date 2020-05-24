@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2056131453838884244}
   - component: {fileID: 5432997734124852229}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: Wegiel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9091652591264597642}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5028889119559468148}
   - component: {fileID: 1333061774159726777}
   - component: {fileID: 8975422894982035600}
-  m_Layer: 8
+  m_Layer: 15
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

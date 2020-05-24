@@ -1,24 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.PlayerLoop;
 
 public class GameControllerScript : MonoBehaviour
 {
     public static GameControllerScript Instance;
     public GridPoint currentGridPoint;
     public BuildingStats currentBuilding;
+    public UnityAction zasobyTimer;
     private bool interactionMode = false;
     private bool buildMode = false;
     private bool moveMode = true;
     public int drewnoIncrece = 0;
-    int kamienIncrece = 0;
-    int wegielIncrece = 0;
-    int metalIncrece = 0;
+    public int kamienIncrece = 0;
+    public int wegielIncrece = 0;
+    public int metalIncrece = 0;
     public int drewnoAmount = 0;
     public int kamienAmount = 0;
     public int wegielAmount = 0;
     public int metalAmount = 0;
-
+    public float collectTimer = 0;
     private void Awake()
     {
         if (Instance == null)
@@ -71,12 +74,20 @@ public class GameControllerScript : MonoBehaviour
         return interactionMode;
     }
 
-IEnumerator Collect()
+    private void Update()
     {
-        for(; ;)
+        collectTimer += Time.deltaTime;
+    }
+
+    IEnumerator Collect()
+    {
+        for (; ; )
         {
-            Debug.Log("Trees nerby: " + drewnoIncrece + " Drewno amount: " + drewnoAmount);
             drewnoAmount += drewnoIncrece;
+            kamienAmount += kamienIncrece;
+            wegielAmount += wegielIncrece;
+            metalAmount += metalIncrece;
+            collectTimer = 0f;
             yield return new WaitForSeconds(10f);
         }
     }
