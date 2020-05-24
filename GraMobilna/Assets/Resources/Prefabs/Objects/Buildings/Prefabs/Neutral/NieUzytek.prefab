@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 981397525982447753}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4141576698695425047}
   - component: {fileID: 2942900932471540018}
   - component: {fileID: 2783044595249994416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 1406986798374080134}
   - component: {fileID: 928207205707440936}
   - component: {fileID: 144060428914857205}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1507828643405031624}
   - component: {fileID: 4995941580453764910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NieUzytek
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.6, z: 1}
+  m_Size: {x: 0.8, y: 0.6, z: 0.8}
   m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &4797848042904352004
 GameObject:
@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 5581061206997539677}
   - component: {fileID: 8195177494477463652}
   - component: {fileID: 4032940961050923071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7937777222361243347}
   - component: {fileID: 6260122895756534868}
   - component: {fileID: 66011666956726858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7430186177749311415}
   - component: {fileID: 4048542698995959970}
   - component: {fileID: 8800225271970789590}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8164298564787401351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 4318790834425559200}
   - component: {fileID: 4415958813199041164}
   - component: {fileID: 1385131660063728600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 2643730400362734708}
   - component: {fileID: 5213208096626053292}
   - component: {fileID: 4400051233028473198}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GlownaBaza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,8 +316,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Size: {x: 0.45, y: 0.5, z: 0.45}
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!114 &4400051233028473198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 1202946923174893694}
   - component: {fileID: 6540869460743298399}
   - component: {fileID: 300642580568035014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 4943933753321209191}
   - component: {fileID: 2165540183965482328}
   - component: {fileID: 4841150107363842136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

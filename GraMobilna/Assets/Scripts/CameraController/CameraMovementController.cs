@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CameraMovementController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CameraMovementController : MonoBehaviour
     [SerializeField]
     private bool rotate;
     protected Plane plane;
+    public float maxZoom = 5f;
+    public float minZoom = 30f;
     private void Awake()
     {
         if (camera == null)
@@ -55,13 +58,14 @@ public class CameraMovementController : MonoBehaviour
                 {
                     return;
                 }
-
-                camera.transform.position = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
-                if (camera.transform.position.y > 20)
+                Vector3 newPos = Vector3.LerpUnclamped(pos1, camera.transform.position, 1 / zoom);
+                if(newPos.y<minZoom && newPos.y > maxZoom)
                 {
-                    camera.transform.position = new Vector3(camera.transform.position.x, Mathf.Clamp(camera.transform.position.y, 2f, 30f), camera.transform.position.z);
-                    return;
+                    camera.transform.position = newPos;
                 }
+
+                camera.transform.position = new Vector3(camera.transform.position.x, Mathf.Clamp(camera.transform.position.y, maxZoom, minZoom), camera.transform.position.z);
+
                 if (rotate && pos2a != pos2)
                 {
                     camera.transform.RotateAround(pos1, plane.normal, Vector3.SignedAngle(pos2 - pos1, pos2a - pos1a, plane.normal));

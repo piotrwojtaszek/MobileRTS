@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5441008335598274493}
   - component: {fileID: 2242368926471997626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Kamien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 0.3, y: 0.45, z: 0.3}
   m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &3054301267917710458
 GameObject:
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 9045542016017483311}
   - component: {fileID: 8876687574318140985}
   - component: {fileID: 5596704313825721807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 363364407822006074}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

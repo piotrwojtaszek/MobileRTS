@@ -30,12 +30,14 @@ public class GridPoint : Interactable
             {
                 GameObject temp = Resources.Load("Prefabs/Grid/GridPointModel") as GameObject;
                 model = Instantiate(temp, transform);
+                GetComponent<Collider>().enabled = true;
             }
         }
         else
         {
             if(empty)
             {
+                GetComponent<Collider>().enabled = false;
                 Destroy(model);
             }
         }
