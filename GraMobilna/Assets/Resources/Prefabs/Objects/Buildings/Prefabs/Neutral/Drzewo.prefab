@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9153429571631530833}
   - component: {fileID: 3026173502863881626}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Drzewo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 848531316093546846}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6060438611911254519}
   - component: {fileID: 7909583551828435750}
   - component: {fileID: 7210478065107882356}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 6339854689740194706}
   - component: {fileID: 4988947004410666414}
   - component: {fileID: 4311724380786279681}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

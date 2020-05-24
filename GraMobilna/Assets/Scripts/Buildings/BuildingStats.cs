@@ -12,12 +12,13 @@ public class BuildingStats : Interactable, IBaseSettings
     public void Awake()
     {
         parent = GameControllerScript.Instance.currentGridPoint;
-        transform.position = new Vector3((int)transform.position.x, transform.position.y, (int)transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
     }
     public void Start()
     {
         SetMaxHealth(settings.maxHealth);
+        Collect();
 
     }
     public void Create()
@@ -58,5 +59,10 @@ public class BuildingStats : Interactable, IBaseSettings
     {
         GameObject prefab = Resources.Load("Prefabs/UI/OnMapEvents/UIMenuIntrakcjiBudynkow") as GameObject;
         Instantiate(prefab);
+    }
+
+    public virtual void Collect()
+    {
+        //Debug.Log();
     }
 }

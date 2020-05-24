@@ -7,13 +7,21 @@ public class GameControllerScript : MonoBehaviour
     public static GameControllerScript Instance;
     public GridPoint currentGridPoint;
     public BuildingStats currentBuilding;
-    private bool interactionMode=false;
-    private bool buildMode=false;
+    private bool interactionMode = false;
+    private bool buildMode = false;
     private bool moveMode = true;
+    public int drewnoIncrece = 0;
+    int kamienIncrece = 0;
+    int wegielIncrece = 0;
+    int metalIncrece = 0;
+    public int drewnoAmount = 0;
+    public int kamienAmount = 0;
+    public int wegielAmount = 0;
+    public int metalAmount = 0;
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -21,7 +29,8 @@ public class GameControllerScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+
+        StartCoroutine(Collect());
     }
 
     public void SetRayFromCamera(bool value)
@@ -60,5 +69,15 @@ public class GameControllerScript : MonoBehaviour
     public bool GetInteractionMode()
     {
         return interactionMode;
+    }
+
+IEnumerator Collect()
+    {
+        for(; ;)
+        {
+            Debug.Log("Trees nerby: " + drewnoIncrece + " Drewno amount: " + drewnoAmount);
+            drewnoAmount += drewnoIncrece;
+            yield return new WaitForSeconds(10f);
+        }
     }
 }
