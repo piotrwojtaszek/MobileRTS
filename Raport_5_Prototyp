@@ -1,0 +1,31 @@
+Aktualny stan projektu: https://youtu.be/Rf5gyChmmKI
+Naprawniłem kilka rzeczy:
+- naprawiłem błędy związane z pracą kamery
+- naprawiłem błąd pojawiający się podczas scrollowania listy budynków ( wraz z scrollowaniem poruszała się kamera)
+- złe skalowanie się interfejsu
+- kilka istotnych bugów
+
+Co zrobiłem:
+- podmieniłem częśc modeli na ładniejsze
+- dodałem nowe budynki
+- dodałem system zasobów
+- zmodyfikowałem system generowania mapy
+- posprzątałem w kodzie
+
+O systemie zasobów:
+Dzięki 4 budynkom( drwal, kamieniarz, hutnik, górnik ) gracz zdobywa surowce. Ilość zdobywanych surowców zależy od 
+ilości sąsiadujących źródeł surowców. Gra liczy to w następujący sposób, tuż po utworzeniu budynku gra sprawdza ile jest
+źródeł zasobów w określonej odległości. Daje mi to możliwosć stworzenia ulepszeń do budynków( np. zwiększenie promienia wydobywania)
+Postawienie budynku kosztuje jakąś ilość zasobów, każdy budynek ma własny koszt. Jeśli surowców jest za mało nie można postawić 
+budynku.
+
+Budynek "Zamek" , to taka jakby nasza baza główna, jego postawienie nic nie kosztuje. Będzie można w nim tworzyć jednostki.
+
+Dotychczas mapa generowała się z wierzchołka kwadratu, zmieniłem to żeby generowała się ze środka kwadratu. ( Łatwiej będzie mi tworzyć
+sąsiadujące tereny).
+
+Niestety z braku czasu będę zmuszony uprościć niektóre rzeczy, np. system walki. Miałem w planach dać graczowi możliwość poruszania
+jednostkami ( nawet stworzyłem prototyp ). Gdybym chciał go zaimplementować, byłby słaby. Dlatego wolę zastąpić to innym rozwiązaniem.
+"Zamek" może tworzyć jednostki, dlatego chcę żeby stworzone jednostki siedziały w tym zamku i gdy nastąpi atak wrogów, liczba jednostek
+gracza zostanie odpowiedznio zmniejszona. Jeśli gracz nie będzie posiadać wystarczająco jednostek aby się obronić, wytrzymałość zamku 
+zmiejszy się o ilość pozostałych wrogich jednostek * "siła ataku". Gracz przegrywa w momencie gdy "Zamek" nie będzie mieć już zdrowia.
