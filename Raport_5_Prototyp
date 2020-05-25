@@ -1,7 +1,7 @@
 Aktualny stan projektu: https://youtu.be/Rf5gyChmmKI
-Naprawniłem kilka rzeczy:
-- naprawiłem błędy związane z pracą kamery
-- naprawiłem błąd pojawiający się podczas scrollowania listy budynków ( wraz z scrollowaniem poruszała się kamera)
+Naprawniłem:
+- błędy związane z pracą kamery
+- błąd pojawiający się podczas scrollowania listy budynków ( wraz z scrollowaniem poruszała się kamera)
 - złe skalowanie się interfejsu
 - kilka istotnych bugów
 
