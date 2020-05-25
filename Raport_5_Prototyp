@@ -29,3 +29,9 @@ jednostkami ( nawet stworzyłem prototyp ). Gdybym chciał go zaimplementować, 
 "Zamek" może tworzyć jednostki, dlatego chcę żeby stworzone jednostki siedziały w tym zamku i gdy nastąpi atak wrogów, liczba jednostek
 gracza zostanie odpowiedznio zmniejszona. Jeśli gracz nie będzie posiadać wystarczająco jednostek aby się obronić, wytrzymałość zamku 
 zmiejszy się o ilość pozostałych wrogich jednostek * "siła ataku". Gracz przegrywa w momencie gdy "Zamek" nie będzie mieć już zdrowia.
+
+Rzeczy do ukończenia:
+- system ulepszeń
+- system innych terenów
+- system zapisu
+- system "walki"
