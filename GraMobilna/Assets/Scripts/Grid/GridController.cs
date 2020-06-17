@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class GridController : MonoBehaviour
 {
+    public int id;
+    public bool m_isUnlocked = false;
     [SerializeField]
     private int size = 1;
+    [SerializeField]
+    private GameObject m_unlockPrefab;
     private GameObject gridPrefab;
     private GameObject gridBasePrefab;
     public GameObject gridConteiner;
+    public GameObject m_smog;
     public GameObject groundConteriner;
     private BuildingsPresets neutralBuilidings;
     private MapNatureGenerator m_natureMap;
@@ -21,6 +26,7 @@ public class GridController : MonoBehaviour
     private int coalNumber;
     private int metalNumber;
     private int uselessNumber;
+    private GameObject m_unlockButton;
 
     private void Start()
     {
@@ -29,13 +35,13 @@ public class GridController : MonoBehaviour
         size = 8;
         gridPrefab = Resources.Load("Prefabs/Grid/GridPoint") as GameObject;
         gridBasePrefab = Resources.Load("Prefabs/Objects/Odlamki/Prefabs/baseGrid") as GameObject;
-        gridConteiner.transform.position = new Vector3(gridConteiner.transform.position.x - size / 2f, gridConteiner.transform.position.y, gridConteiner.transform.position.z-size/2f);
+        gridConteiner.transform.position = new Vector3(gridConteiner.transform.position.x - size / 2f, gridConteiner.transform.position.y, gridConteiner.transform.position.z - size / 2f);
 
         GameObject ground = Instantiate(gridBasePrefab, groundConteriner.transform);
         ground.transform.localScale = new Vector3(ground.transform.localScale.x * size, ground.transform.localScale.y, ground.transform.localScale.z * size);
-
+        m_smog = ground.GetComponent<BaseGrid>().m_smog;
         buildMode = GameControllerScript.Instance.GetBuildMode();
-
+        CreateUnlockButton();
         neutralBuilidings = Resources.Load("Prefabs/ScriptableObjects/ModeleZasobow") as BuildingsPresets;
 
         CreateGrid(size);
@@ -43,11 +49,17 @@ public class GridController : MonoBehaviour
 
     private void Update()
     {
-        if (buildMode != GameControllerScript.Instance.GetBuildMode())
-        {
-            buildMode = GameControllerScript.Instance.GetBuildMode();
-            SwitchMode();
-        }
+
+        if (m_isUnlocked)
+            if (buildMode != GameControllerScript.Instance.GetBuildMode())
+            {
+                buildMode = GameControllerScript.Instance.GetBuildMode();
+                if (m_unlockButton != null)
+                {
+                    m_unlockButton.SetActive(!buildMode);
+                }
+                SwitchMode();
+            }
     }
 
     private void CreateGrid(int size)
@@ -136,5 +148,18 @@ public class GridController : MonoBehaviour
     public int GetSizeOfGrid()
     {
         return size;
+    }
+
+    public void CreateUnlockButton()
+    {
+        m_unlockButton = Instantiate(m_unlockPrefab, transform);
+        m_unlockButton.GetComponent<UnlockTerrain>().SetTransform(transform.position + new Vector3(0f, 1.5f, 0f));
+        m_unlockButton.GetComponent<UnlockTerrain>().controller = this;
+    }
+
+    public void Unlock()
+    {
+        m_isUnlocked = true;
+        Destroy(m_smog);
     }
 }

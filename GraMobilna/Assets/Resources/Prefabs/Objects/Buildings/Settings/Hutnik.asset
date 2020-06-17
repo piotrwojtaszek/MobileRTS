@@ -20,4 +20,4 @@ MonoBehaviour:
   kosztKamienia: 20
   kosztWegla: 20
   kosztMetalu: 10
-  interactions: 2
+  interactions: 1

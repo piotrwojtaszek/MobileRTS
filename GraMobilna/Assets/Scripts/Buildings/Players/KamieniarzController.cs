@@ -21,13 +21,11 @@ public class KamieniarzController : BuildingStats
     public override void InteractionCard(int number)
     {
 
-        if (number == 0)
+        if (number == 0 && GameControllerScript.Instance.CheckIfEnoughMinerals(settings.kosztDrewna, settings.kosztKamienia, settings.kosztWegla, settings.kosztMetalu))
         {
-            Debug.Log("Interakcja numer 0 kamieniarz");
-        }
-        if (number == 1)
-        {
-            Debug.Log("Interakcja numer 1 kamieniarz");
+            GameControllerScript.Instance.SubstractMinerals(settings.kosztDrewna, settings.kosztKamienia, settings.kosztWegla, settings.kosztMetalu);
+            Collect();
+            Debug.Log("Ulepszenie");
         }
     }
 

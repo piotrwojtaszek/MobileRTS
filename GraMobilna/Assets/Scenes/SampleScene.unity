@@ -2025,10 +2025,10 @@ MonoBehaviour:
   kamienIncrece: 0
   wegielIncrece: 0
   metalIncrece: 0
-  drewnoAmount: 150
-  kamienAmount: 100
-  wegielAmount: 50
-  metalAmount: 50
+  drewnoAmount: 600
+  kamienAmount: 600
+  wegielAmount: 200
+  metalAmount: 200
   collectTimer: 0
 --- !u!4 &1427355806
 Transform:
@@ -2147,7 +2147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: -10, y: 20, z: -10}
+  m_LocalPosition: {x: -13.991925, y: 20, z: -14.166264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

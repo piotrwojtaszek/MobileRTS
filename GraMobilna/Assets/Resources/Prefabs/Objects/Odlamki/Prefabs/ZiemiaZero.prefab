@@ -77,7 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edce9787f8f5afc409cfd7af70079c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   size: 7
+  m_unlockPrefab: {fileID: 7108837526958464040, guid: 7995203a86278fe4bba13f3ea9648242,
+    type: 3}
   gridConteiner: {fileID: 1504641090157867586}
   groundConteriner: {fileID: 1504641089601964604}
 --- !u!114 &1504641088679593951

@@ -24,10 +24,10 @@ public class GameControllerScript : MonoBehaviour
     public int metalIncrece = 0;
 
     // Ilość aktualnie posiadanych zasobów
-    public int drewnoAmount = 150;
-    public int kamienAmount = 100;
-    public int wegielAmount = 50;
-    public int metalAmount = 50;
+    public int drewnoAmount = 400;
+    public int kamienAmount = 400;
+    public int wegielAmount = 100;
+    public int metalAmount = 100;
 
     public float collectTimer = 0;
     private void Awake()
@@ -86,6 +86,50 @@ public class GameControllerScript : MonoBehaviour
     {
         collectTimer += Time.deltaTime;
     }
+
+    /// <summary>
+    /// Zwraca false gdy jest za malo, true gdy wystarczy
+    /// </summary>
+    /// <param name="drewno"></param>
+    /// <param name="kamien"></param>
+    /// <param name="wegiel"></param>
+    /// <param name="metal"></param>
+    /// <returns></returns>
+    public bool CheckIfEnoughMinerals(int drewno, int kamien, int wegiel, int metal)
+    {
+
+        if(drewnoAmount-drewno<=0)
+        {
+            return false;
+        }
+        if (kamienAmount - kamien <= 0)
+        {
+            return false;
+        }
+        if (wegielAmount - wegiel <= 0)
+        {
+            return false;
+
+        }
+        if (metalAmount - metal <= 0)
+        {
+            return false;
+        }
+        Debug.Log("wystarczy");
+
+        return true;
+    }
+
+
+    public void SubstractMinerals(int drewno, int kamien, int wegiel, int metal)
+    {
+        drewnoAmount -= drewno;
+        kamienAmount -= kamien;
+        wegielAmount -= wegiel;
+        metalAmount -= metal;
+
+    }
+
 
     IEnumerator Collect()
     {
