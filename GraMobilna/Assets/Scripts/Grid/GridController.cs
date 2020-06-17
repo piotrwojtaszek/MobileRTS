@@ -26,7 +26,7 @@ public class GridController : MonoBehaviour
     {
         m_natureMap = GetComponent<MapNatureGenerator>();
 
-        size = Random.Range(6, 9);
+        size = 8;
         gridPrefab = Resources.Load("Prefabs/Grid/GridPoint") as GameObject;
         gridBasePrefab = Resources.Load("Prefabs/Objects/Odlamki/Prefabs/baseGrid") as GameObject;
         gridConteiner.transform.position = new Vector3(gridConteiner.transform.position.x - size / 2f, gridConteiner.transform.position.y, gridConteiner.transform.position.z-size/2f);
@@ -131,5 +131,10 @@ public class GridController : MonoBehaviour
         {
             obj.GetComponent<GridPoint>().SwitchMode(GameControllerScript.Instance.GetBuildMode());
         }
+    }
+
+    public int GetSizeOfGrid()
+    {
+        return size;
     }
 }

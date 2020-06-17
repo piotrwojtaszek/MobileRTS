@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - CameraRay
     - CardBuildInterDisplay
     - CardBuildingDisplay
+    - FragmentsController
     - GameControllerScript
     - GornikController
     - GridController
@@ -19,11 +20,8 @@ ScriptsOnlyBuild:
     - MapNatureGenerator
     - MenuBudowy
     - MenuBuildInteractions
-    - NavigationBaker
     - SOBuildingsBaseSettings
     - TartakController
-    - UnityEngine.AI.NavMeshModifier
-    - UnityEngine.AI.NavMeshSurface
     - ZasobyButton
     - ZasobyStanUI
     Unity.RenderPipelines.Core.Runtime.dll:
@@ -53,7 +51,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIHandlerVector4
     - UnityEngine.Rendering.UI.UIFoldout
     Unity.RenderPipelines.Universal.Editor.dll:
-    - UnityEditor.Rendering.Universal.AssetVersion
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.ForwardRendererData
@@ -149,13 +146,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11760}
     - Class: 114
-      Script: {instanceID: 11826}
-    - Class: 114
       Script: {instanceID: 11872}
     - Class: 114
       Script: {instanceID: 11874}
-    - Class: 114
-      Script: {instanceID: 11892}
     - Class: 114
       Script: {instanceID: 11894}
     - Class: 114
@@ -194,8 +187,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12864}
     - Class: 114
       Script: {instanceID: 12944}
-    - Class: 114
-      Script: {instanceID: 12972}
     - Class: 114
       Script: {instanceID: 12988}
     - Class: 114
@@ -243,39 +234,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14122}
     - Class: 114
-      Script: {instanceID: 14344}
+      Script: {instanceID: 14156}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 14346}
     - Class: 114
-      Script: {instanceID: 14526}
+      Script: {instanceID: 14392}
     - Class: 114
-      Script: {instanceID: 14570}
+      Script: {instanceID: 14528}
     - Class: 114
-      Script: {instanceID: 14718}
+      Script: {instanceID: 14572}
     - Class: 114
-      Script: {instanceID: 14746}
+      Script: {instanceID: 14720}
     - Class: 114
-      Script: {instanceID: 14768}
+      Script: {instanceID: 14748}
     - Class: 114
       Script: {instanceID: 14770}
     - Class: 114
-      Script: {instanceID: 14798}
+      Script: {instanceID: 14772}
     - Class: 114
-      Script: {instanceID: 14818}
+      Script: {instanceID: 14800}
     - Class: 114
-      Script: {instanceID: 14822}
+      Script: {instanceID: 14820}
     - Class: 114
-      Script: {instanceID: 14832}
+      Script: {instanceID: 14824}
     - Class: 114
-      Script: {instanceID: 14856}
+      Script: {instanceID: 14834}
     - Class: 114
-      Script: {instanceID: 14906}
+      Script: {instanceID: 14838}
     - Class: 114
-      Script: {instanceID: 14938}
+      Script: {instanceID: 14860}
     - Class: 114
-      Script: {instanceID: 14944}
+      Script: {instanceID: 14910}
     - Class: 114
-      Script: {instanceID: 18478}
+      Script: {instanceID: 14942}
+    - Class: 114
+      Script: {instanceID: 14948}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1059,6 +1052,12 @@ ScriptsOnlyBuild:
     className: CinemachineUniversalPixelPerfect
   - hash:
       serializedVersion: 2
+      Hash: 3a876a03ac7bfdf0c33521a27d97a912
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FragmentsController
+  - hash:
+      serializedVersion: 2
       Hash: 36112b0a16753cab0931521e4de67ef6
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1245,6 +1244,12 @@ ScriptsOnlyBuild:
     className: TartakController
   - hash:
       serializedVersion: 2
+      Hash: 2b0603daa8ffb63bfbed6475ae1b975a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapNatureGenerator
+  - hash:
+      serializedVersion: 2
       Hash: 7072231382eb3c4871b3dd75ad0227e1
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1297,12 +1302,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 2b0603daa8ffb63bfbed6475ae1b975a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: MapNatureGenerator
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
