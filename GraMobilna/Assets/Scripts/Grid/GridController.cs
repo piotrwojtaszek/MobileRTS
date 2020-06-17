@@ -12,6 +12,7 @@ public class GridController : MonoBehaviour
     public GameObject gridConteiner;
     public GameObject groundConteriner;
     private BuildingsPresets neutralBuilidings;
+    private MapNatureGenerator m_natureMap;
     private List<GameObject> gridPoints = new List<GameObject>();
     private bool buildMode;
 
@@ -23,15 +24,20 @@ public class GridController : MonoBehaviour
 
     private void Start()
     {
+        m_natureMap = GetComponent<MapNatureGenerator>();
+
         size = Random.Range(6, 9);
         gridPrefab = Resources.Load("Prefabs/Grid/GridPoint") as GameObject;
         gridBasePrefab = Resources.Load("Prefabs/Objects/Odlamki/Prefabs/baseGrid") as GameObject;
         gridConteiner.transform.position = new Vector3(gridConteiner.transform.position.x - size / 2f, gridConteiner.transform.position.y, gridConteiner.transform.position.z-size/2f);
-        GameObject ground = Instantiate(gridBasePrefab, groundConteriner.transform);
 
+        GameObject ground = Instantiate(gridBasePrefab, groundConteriner.transform);
         ground.transform.localScale = new Vector3(ground.transform.localScale.x * size, ground.transform.localScale.y, ground.transform.localScale.z * size);
+
         buildMode = GameControllerScript.Instance.GetBuildMode();
+
         neutralBuilidings = Resources.Load("Prefabs/ScriptableObjects/ModeleZasobow") as BuildingsPresets;
+
         CreateGrid(size);
     }
 
@@ -55,6 +61,7 @@ public class GridController : MonoBehaviour
                 GameObject temp = Instantiate(gridPrefab, gridConteiner.transform);
                 temp.transform.localPosition = point;
                 gridPoints.Add(temp);
+                m_natureMap.Nature(size, gridConteiner.transform, point);
 
                 temp.GetComponent<GridPoint>().SwitchMode(GameControllerScript.Instance.GetBuildMode());
             }
@@ -115,20 +122,6 @@ public class GridController : MonoBehaviour
                 ogolnieDoRozmieszczenia--;
             }
         }
-    }
-
-
-    private void OnDrawGizmos()
-    {
-        /*Gizmos.color = Color.yellow;
-        for (int x = 1; x < size; x++)
-        {
-            for (int z = 1; z < size; z++)
-            {
-                Vector3 point = new Vector3(x, 0f, z);
-                Gizmos.DrawSphere(point, 0.1f);
-            }
-        }*/
     }
 
     public void SwitchMode()

@@ -16,5 +16,8 @@ MonoBehaviour:
   maxHealth: 100
   buildingName: Zamek
   model: {fileID: 7320721145665033003, guid: 35b8affaa1699f14180a7c1020f135ae, type: 3}
-  koszt: 10
+  kosztDrewna: 50
+  kosztKamienia: 50
+  kosztWegla: 0
+  kosztMetalu: 0
   interactions: 2
